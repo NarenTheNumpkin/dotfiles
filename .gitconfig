@@ -1,0 +1,16 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Naren
+	email = 137981148+Wxua2005@users.noreply.github.com
+# Please adapt and uncomment the following lines:
+#	name = Naren Medarametla
+#	email = naren@Narens-MacBook-Pro.local
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+  required = true
+
+[alias]
+  co = checkout
