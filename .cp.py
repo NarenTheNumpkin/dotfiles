@@ -5,6 +5,7 @@ content = '''#include <iostream>
 #include "bits-stdc++.h"
 
 typedef long long ll;
+typedef std::vector<int> vec;
 
 void solve()
 {

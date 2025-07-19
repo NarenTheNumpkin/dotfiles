@@ -137,8 +137,6 @@ function ca() {
   if [[ -z "${CONDA_PREFIX}" ]]; then 
     conda activate "$ENV_NAME"
   else
-    ADDR=(${(s:/:)CONDA_PREFIX})
-    LEN=${#ADDR[@]}
       if [[ -z "$ENV_NAME" ]]; then
         conda deactivate
       else
@@ -149,11 +147,25 @@ function ca() {
 }
 
 function py3() {
-  python3
+  if [ -z "$1" ]; then
+    python3
+  else
+    python3 "$1"
+  fi
 }
 
 function bp() {
-  python3 ~/.cp.py $1
+  python3 ~/.cp.py "$1"
+}
+
+function ros() {
+  runtime=$(docker info --format '{{.ClientInfo.Context}}')
+  if [[ "$runtime" == "colima" ]]; then
+    docker exec -it main-ros-humble bash
+    return 
+  fi
+  colima start
+  docker start -ai main-ros-humble 
 }
 
 export PATH="/Library/TeX/texbin:$PATH"
