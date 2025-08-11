@@ -173,6 +173,10 @@ function ros() {
   docker start -ai main-ros-humble 
 }
 
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --group-directories-first --grid"
+alias tree="eza --tree --level=2"
+
+export EZA_CONFIG_DIR="~/.config/eza"
 export PATH="/Library/TeX/texbin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 
